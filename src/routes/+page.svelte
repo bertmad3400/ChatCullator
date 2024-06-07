@@ -37,7 +37,8 @@
 
 	<div
 		class="
-    w-[30rem] h-[45rem]
+    w-[90vw] h-[60vh]
+    sm:w-[30rem] sm:h-[45rem]
     bg-secondary-900 absolute
     shadow-black shadow-xl
     flex flex-col
@@ -51,7 +52,7 @@
 		>
 			<p
 				class="
-        text-white font-bold text-6xl
+        text-white font-bold text-5xl sm:text-6xl
         text-nowrap text-right
       "
 			>
@@ -127,7 +128,7 @@
 <style lang="postcss">
 	section {
 		button {
-			@apply w-full h-full text-4xl text-white;
+			@apply w-full h-full text-2xl sm:text-4xl text-white;
 
 			&.primary {
 				@apply bg-secondary-600 hover:bg-secondary-500 font-bold;
