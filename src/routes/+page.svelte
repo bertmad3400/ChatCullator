@@ -109,7 +109,7 @@
 			<button
 				class="secondary col-span-2"
 				on:click={() => {
-					if (lastIsNr(calcContent)) calcContent += 0;
+					calcContent += 0;
 				}}>0</button
 			>
 			<button
