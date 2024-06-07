@@ -43,15 +43,21 @@
     flex flex-col
   "
 	>
-		<p
+		<div
 			class="
-      flex justify-end items-center
-      px-4 h-28 text-right
-      text-white font-bold text-6xl
+        flex justify-end items-center
+        mx-4 h-28 overflow-hidden
     "
 		>
-			{spaceCalcContent(calcContent)}
-		</p>
+			<p
+				class="
+        text-white font-bold text-6xl
+        text-nowrap text-right
+      "
+			>
+				{spaceCalcContent(calcContent)}
+			</p>
+		</div>
 
 		<section class="grow grid grid-cols-4 grid-rows-5 gap-1 bg-secondary-950">
 			<button class="primary" on:click={() => (calcContent = '')}>AC</button>
