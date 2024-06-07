@@ -3,6 +3,7 @@
 
 	const isNr = (char: string) => !isNaN(parseInt(char));
 	const lastIsNr = (str: string) => isNr(str.at(-1) ?? '');
+	let loading = false;
 
 	const spaceCalcContent = (content: string) =>
 		content
@@ -14,6 +15,20 @@
 		(calcContent = lastIsNr(calcContent)
 			? calcContent + symbol
 			: calcContent.slice(0, -1) + symbol);
+
+	async function answer() {
+		if (loading) return;
+		loading = true;
+		const response = await fetch('/api/calculate', {
+			method: 'POST',
+			body: JSON.stringify({ equation: calcContent }),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		calcContent = (await response.json()).answer;
+		loading = false;
+	}
 </script>
 
 <main class="w-screen h-screen flex flex-col justify-center items-center">
@@ -64,6 +79,7 @@
 			{/each}
 
 			<button
+				on:click={() => answer()}
 				class="
         row-span-2
         bg-primary-500 hover:bg-primary-400
